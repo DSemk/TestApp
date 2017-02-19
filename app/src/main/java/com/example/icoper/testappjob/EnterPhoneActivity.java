@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;;
+import android.support.multidex.MultiDex;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ContextThemeWrapper;
@@ -26,7 +27,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by icoper on 17.02.17.
+ * Created by icoper on 18.02.17.
  */
 
 public class EnterPhoneActivity extends AppCompatActivity implements View.OnClickListener {
@@ -56,6 +57,8 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.enter_phone_activity);
+        MultiDex.install(this);
+
 
         // this metod is setup all view in EnterPhoneActivity
         setupView();
