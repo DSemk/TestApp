@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TestAppJob</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="ep_enter_phone_number_ru">ВВЕДИТЕ НОМЕР ТЕЛЕФОНА</string>
+    <string name="ep_get_code_ru">Получить код</string>
+    <string name="ep_enter_code_ru">Введите код</string>
+    <string name="ep_confirm_ru">Подтвердить</string>
+    <string name="title_activity_phone">Авторизация</string>
+    <string name="ad_info_text">
+        Сейчас система  отправит на Ваш телефон смс-сообщение с кодом для авторизации
+    </string>
+</resources>

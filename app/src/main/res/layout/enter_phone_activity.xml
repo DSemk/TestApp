@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tolls="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/vector_city"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/titel_custom_border"
+        android:backgroundTint="@color/ep_title_color"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="25sp"
+            android:text="@string/title_activity_phone"
+            android:gravity="center_horizontal|center_vertical"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="22dp"
+            android:text="@string/ep_enter_phone_number_ru"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp">
+
+            <EditText
+                android:id="@+id/ep_edit_phone_et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:ems="10"
+                android:inputType="phone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"/>
+
+            <Button
+                android:id="@+id/ep_ask_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:background="@drawable/ask_btn"
+                android:gravity="center_vertical"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ep_userCountry_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ad_text_colot"
+            tolls:text="(Украина) +38 0ХХ ХХХ ХХ ХХ." />
+
+        <Button
+            android:id="@+id/ep_get_code_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:enabled="false"
+            android:text="@string/ep_get_code_ru" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="@string/ep_enter_code_ru"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/ep_edit_code_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false" />
+
+            <Button
+                android:id="@+id/ep_done_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:enabled="false"
+                android:text="@string/ep_confirm_ru" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
