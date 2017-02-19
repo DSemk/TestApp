@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.media.RingtoneManager;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Log;
@@ -19,6 +20,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,9 +55,12 @@ public class NetworkIntentService extends IntentService {
         try {
             http.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             response = (String) httpclient.execute(http, new BasicResponseHandler());
+        } catch (UnknownHostException u) {
+            error = getString(R.string.no_internet);
         } catch (IOException i) {
             error = i.toString();
         }
+
         HandlerThread thread = new HandlerThread("MyHandlerThread");
         thread.start();
         Handler handler = new Handler(thread.getLooper());
@@ -82,11 +87,14 @@ public class NetworkIntentService extends IntentService {
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         Notification.Builder builder = new Notification.Builder(this);
+        long[] vibrate = {0, 500, 0};
         builder.setContentIntent(contentIntent)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setAutoCancel(true)
                 .setContentTitle(LOG)
-                .setContentText("Ответ сервера : " + response);
+                .setContentText("Ответ сервера : " + response)
+                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                .setVibrate(vibrate);
 
         Notification n = builder.build();
         nm.notify(NOTIFY_ID, n);

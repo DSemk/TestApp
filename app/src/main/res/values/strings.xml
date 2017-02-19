@@ -2,11 +2,17 @@
     <string name="app_name">TestAppJob</string>
     <string name="title_activity_maps">Map</string>
     <string name="ep_enter_phone_number_ru">ВВЕДИТЕ НОМЕР ТЕЛЕФОНА</string>
-    <string name="ep_get_code_ru">Получить код</string>
-    <string name="ep_enter_code_ru">Введите код</string>
-    <string name="ep_confirm_ru">Подтвердить</string>
+    <string name="ep_get_code_ru">ПОЛУЧИТЬ КОД</string>
+    <string name="ep_enter_code_ru">ВВЕДИТЕ КОД</string>
+    <string name="ep_confirm_ru">ПОДТВЕРДИТЬ</string>
     <string name="title_activity_phone">Авторизация</string>
     <string name="ad_info_text">
         Сейчас система  отправит на Ваш телефон смс-сообщение с кодом для авторизации
     </string>
+    <string name="no_internet">
+        Не удалось выполнить запрос. Проверьте соеденение с интернетом и вовторите попытку
+    </string>
+    <string name="no_gps">Ваше устройство не поддерживает данную функцию</string>
+    <string name="gps_is_disable">Для продолжения необходимо включить GPS. Хотите перейти в настроки и сделать это?</string>
+    <string name="no_permisiion_to_GPS">Для продолжения необходимо разрешить прилоэжению использовать геолокацию</string>
 </resources>

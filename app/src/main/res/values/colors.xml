@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="ad_transparently_color">#f9f7f7</color>
-    <color name="ad_text_colot">#d1d0d0</color>
+    <color name="ad_text_colot">#b7b7b7</color>
     <color name="ep_title_color">#e9d35a</color>
     <color name="ep_ask_btn_color">#506dd7</color>
 </resources>

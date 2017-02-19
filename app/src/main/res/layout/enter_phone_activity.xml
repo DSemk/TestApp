@@ -11,25 +11,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/titel_custom_border"
-        android:backgroundTint="@color/ep_title_color"
+        android:background="@drawable/title_background"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="25sp"
+            android:gravity="center_horizontal|center_vertical"
             android:text="@string/title_activity_phone"
-            android:gravity="center_horizontal|center_vertical"/>
+            android:textSize="25sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,7 +36,7 @@
             android:layout_gravity="center_horizontal"
             android:paddingTop="22dp"
             android:text="@string/ep_enter_phone_number_ru"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,32 +46,35 @@
             <EditText
                 android:id="@+id/ep_edit_phone_et"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="65dp"
                 android:layout_weight="1"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
+                android:background="@drawable/edit_text_border"
                 android:ems="10"
-                android:inputType="phone" />
+                android:textStyle="bold"
+                android:textSize="36sp"
+                android:inputType="phone"
+                tolls:text="+38 0XX XXX XXX XX" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="16dp"/>
+                android:padding="8dp" />
 
             <Button
                 android:id="@+id/ep_ask_btn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
                 android:background="@drawable/ask_btn"
-                android:gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/ep_userCountry_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="4dp"
             android:textColor="@color/ad_text_colot"
             tolls:text="(Украина) +38 0ХХ ХХХ ХХ ХХ." />
 
@@ -80,8 +82,11 @@
             android:id="@+id/ep_get_code_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:background="@drawable/enb_btn"
+            android:padding="16dp"
             android:enabled="false"
+            android:textSize="16sp"
             android:text="@string/ep_get_code_ru" />
 
         <LinearLayout
@@ -98,20 +103,36 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:text="@string/ep_enter_code_ru"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/ep_edit_code_et"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="false" />
+                android:layout_height="40dp"
+                android:background="@drawable/edit_text_border"
+                android:enabled="false"
+                android:inputType="number"
+                android:textStyle="bold"
+                android:textSize="30sp"
+
+                tolls:text="1111" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:padding="8dp"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/ep_done_bt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:background="@drawable/dis_btn"
+                android:padding="16dp"
                 android:enabled="false"
+                android:textSize="16sp"
                 android:text="@string/ep_confirm_ru" />
 
         </LinearLayout>

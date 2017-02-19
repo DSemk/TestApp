@@ -32,9 +32,8 @@ import java.util.ArrayList;
 public class EnterPhoneActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String COUNTRY_CODE_UA = "Украина : +38 0ХХ ХХХ ХХ ХХ";
-    private static final String COUNTRY_CODE_USA = "Россия : +7 ХХХ ХХХ ХХХ ХХ";
-    private static final String COUNTRY_CODE_RU = "США : +1 XXX XXX XXXX";
-    private static final String ALERT_DIALOG_COUNTRY_TITLE = "Укажите код страны";
+    private static final String COUNTRY_CODE_RU = "Россия : +7 ХХХ ХХХ ХХХ ХХ";
+    private static final String COUNTRY_CODE_USA = "США : +1 XXX XXX XXXX";
 
     private static final Integer PHONE_LENGTH = 13;
 
@@ -77,6 +76,9 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
         getCodeBtn.setOnClickListener(this);
         confirmBtn.setOnClickListener(this);
 
+        getCodeBtn.setBackgroundResource(R.drawable.dis_btn);
+        confirmBtn.setBackgroundResource(R.drawable.dis_btn);
+
         editNumber.addTextChangedListener(new TextWatcher() {
 
             @Override
@@ -88,7 +90,11 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() == PHONE_LENGTH) {
                     getCodeBtn.setEnabled(true);
-                } else getCodeBtn.setEnabled(false);
+                    getCodeBtn.setBackgroundResource(R.drawable.enb_btn);
+                } else {
+                    getCodeBtn.setBackgroundResource(R.drawable.dis_btn);
+                    getCodeBtn.setEnabled(false);
+                }
             }
 
             @Override
@@ -105,9 +111,16 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                // A check is inserted the code for the desired length.
+                // If the length of the code is correct, do the confirm button active.
                 if (s.length() == 4) {
                     confirmBtn.setEnabled(true);
-                } else confirmBtn.setEnabled(false);
+                    confirmBtn.setBackgroundResource(R.drawable.enb_btn);
+                } else {
+                    confirmBtn.setEnabled(false);
+                    confirmBtn.setBackgroundResource(R.drawable.dis_btn);
+                }
             }
 
             @Override
@@ -118,9 +131,10 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
     }
 
     /**
-     * @param v it's id selected item
-     *          ep_ask_btn - call metod showCounrtyCode() & show list of country type number
-     *          //TODO
+     * @param v it's id selected item :
+     *          - ep_ask_btn - call metod showCountryCode() & show list of country type number
+     *          - ep_done_bt - start MapActivity.class
+     *          - ep_get_code_btn - show user alert dialog. He have country code.
      */
     @Override
     public void onClick(View v) {
@@ -163,7 +177,7 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
         // customize dialog theme
         AlertDialog alertDialog = builder.create();
         Drawable d = new ColorDrawable(Color.GRAY);
-        d.setAlpha(200);
+        d.setAlpha(225);
         alertDialog.getWindow().setBackgroundDrawable(d);
 
         alertDialog.show();
@@ -204,7 +218,7 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
         // customize dialog theme
         AlertDialog alertDialog = builder.create();
         Drawable d = new ColorDrawable(Color.GRAY);
-        d.setAlpha(200);
+        d.setAlpha(225);
         alertDialog.getWindow().setBackgroundDrawable(d);
         alertDialog.show();
     }
@@ -234,18 +248,22 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
             View v = LayoutInflater
                     .from(parent.getContext())
                     .inflate(R.layout.country_code_item, parent, false);
+
             CountryListViewHolder listViewHolder = new CountryListViewHolder(v);
             return listViewHolder;
         }
 
         @Override
         public void onBindViewHolder(CountryListViewHolder holder, final int position) {
+
             if (!countryCodeList.isEmpty()) {
+
                 holder.codeType.setText(countryCodeList.get(position));
                 holder.codeType.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         userCountryCode.setText(countryCodeList.get(position));
+                        attemptUserCode(countryCodeList.get(position));
                     }
                 });
             }
@@ -267,8 +285,6 @@ public class EnterPhoneActivity extends AppCompatActivity implements View.OnClic
             codeType = (TextView) itemView.findViewById(R.id.dc_country_code);
         }
     }
-
-    // TODO
 
     public static Context getContext() {
         return context;
